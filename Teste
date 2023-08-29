@@ -1,0 +1,20 @@
+public class Main {
+	public static void main(String[] args) {
+	int x = 1;
+	System.out.println(
+			"Caso escolha 1: Compra Blusa \n" +
+			"Caso escolha 2: Solicitar valor do produto ou serviço\n" +
+			"Caso escolha 3: Falar com um atendente\n");
+			switch (x) {
+				case 1:
+					System.out.println("Otima escolha!");
+					break;
+				case 2:
+					System.out.println("O valor da blusa é R$ 2,00");
+					break;
+				case 3:
+					System.out.println("Falar com atendente");
+					break;
+						}
+  } 
+	}
