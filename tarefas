@@ -1,0 +1,32 @@
+public class Media {
+    public static void main(String[] args) {
+        double x = 7.5;
+        double y = 5.0;
+        double z = 6.5;
+
+        double media = (x + y + z) / 3.0;
+
+        if (media >= 7.0) {
+            System.out.println("Aprovado");
+        } else {
+            System.out.println("Reprovado");
+        }
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+    int x = 0;
+    int y = 2;
+    if (x > y) {
+        System.out.println("Variavel x eh maior");
+    } else if ( x < y ) {
+        System.out.println("Variavel y eh maior");
+    } else {
+        System.out.println("Eles sao iguais");
+    }}}
+
+
+
+
