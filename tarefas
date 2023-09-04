@@ -29,4 +29,45 @@ public class Main {
 
 
 
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Pessoa p = new Pessoa();
+
+        System.out.println("informe o peso");
+        p.setPeso (scanner.nextDouble());
+        System.out.println("informe a altura");
+        p.setAltura(scanner.nextDouble());
+        p.Calcula_IMC();
+        System.out.println(p.getIMC());
+
+    }}
+
+public class Pessoa {
+
+    private double IMC;
+    private double altura;
+    private double peso;
+
+    public void Calcula_IMC() {
+        IMC = peso / (altura * altura);
+    }
+
+    public double getIMC() {
+        return IMC;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+}
+
+
+
+
 
