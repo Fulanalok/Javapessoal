@@ -1,0 +1,112 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.println("Escolha o seu veiculo");
+        int x = scanner.nextInt();
+
+
+        switch(x) {
+            case 1:
+                Carro c = new Carro();
+                System.out.println("Digite a marca");
+                c.setMarca(scanner2.nextLine());
+                System.out.println("Digite o modelo");
+                c.setModelo(scanner2.nextLine());
+                System.out.println("Digite o ano de fabricacao");
+                c.setAnoFabricacao(scanner.nextInt());
+                System.out.println("Digite o numero de portas");
+                c.setNumportas(scanner.nextInt());
+
+                System.out.println(c.getMarca());
+                System.out.println(c.getModelo());
+                System.out.println(c.getAnoFabricacao());
+                System.out.println(c.getNumportas());
+                break;
+            case 2:
+                Moto m = new Moto();
+                System.out.println("Digite a marca");
+                m.setMarca (scanner2.nextLine());
+                System.out.println("Digite o modelo");
+                m.setModelo(scanner2.nextLine());
+                System.out.println("Digite o ano de fabricacao");
+                m.setAnoFabricacao(scanner.nextInt());
+                System.out.println("Digite o numero de cilindradas");
+                m.setCilindradas(scanner.nextInt());
+
+                System.out.println(m.getMarca());
+                System.out.println(m.getModelo());
+                System.out.println(m.getAnoFabricacao());
+                System.out.println(m.getCilindradas());
+
+
+
+
+
+
+        }}}
+
+
+
+Veiculo 
+public class Veiculo {
+    protected String marca;
+
+    protected String modelo;
+
+
+    protected int anoFabricacao;
+
+
+    public void setMarca (String marca){
+        this.marca = marca;
+    }
+
+    public void setModelo (String modelo){
+        this.modelo = modelo;
+    }
+
+    public void setAnoFabricacao ( int anoFabricacao){
+        this.anoFabricacao = anoFabricacao;
+    }
+
+    public int getAnoFabricacao() {
+        return anoFabricacao;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+}
+
+Carro
+public class Carro extends Veiculo {
+    private int numportas;
+
+    public void setNumportas(int numportas) {
+        this.numportas = numportas;
+    }
+    public int getNumportas() {
+        return numportas;
+    }
+}
+
+Moto
+
+public class Moto extends Veiculo {
+    private int cilindradas;
+
+    public void setCilindradas(int cilindradas) {
+        this.cilindradas = cilindradas;
+    }
+
+    public int getCilindradas() {
+        return cilindradas;
+
+    }
+}
