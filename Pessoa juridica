@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Pessoas p = new Pessoas();
+        CadastroPessoas cp = new CadastroPessoas();
+
+import java.util.ArrayList;
+
+public class CadastroPessoas {
+    private ArrayList<Juridica> juridicas = new ArrayList<Juridica>();
+
+    public void cadastrarJuridica( p) {
+        pessoas.add(p);
+        System.out.println("Pessoa cadastrada com sucesso");
+    }
+
+    public void listar() {
+        for (Pessoas p : pessoas) {
+
+            System.out.println("Nome" + p.getNome() + "idade:" +
+                    p.getIdade());
+        }
+    }
+}
+
+
+public class Juridica extends Pessoa {
+    private int cnpj;
+
+
+}
+
+
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setidade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    @Override
+    public String toString () {
+        return "Nome" + nome + " idade " + idade;
+
+    }
+}
+
+
+public class Fisica {
+    private String nome;
+    private int idade;
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setidade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    @Override
+    public String toString () {
+        return "Nome" + nome + " idade " + idade;
+
+    }
+}
