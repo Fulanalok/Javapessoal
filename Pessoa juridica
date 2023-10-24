@@ -1,89 +1,109 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
 
-        Pessoas p = new Pessoas();
-        CadastroPessoas cp = new CadastroPessoas();
+        Juridica j = new Juridica();
+        CadastroPessoas cpJuridica = new CadastroPessoas();
+
+        System.out.println("Digite o nome da pessoa Jurídica:");
+        j.setNome(scanner.next());
+
+        System.out.println("Digite a idade da pessoa Jurídica cadastrada:");
+        j.setIdade(scanner.nextInt());
+
+        System.out.println("Digite o CNPJ da pessoa Jurídica:");
+        j.setCnpj(scanner.nextInt());
+
+        cpJuridica.cadastrarJuridica(j);
+        cpJuridica.listarJuridicas();
+
+        Fisica f = new Fisica();
+        CadastroPessoas2 cpFisica = new CadastroPessoas2();
+
+        System.out.println("Digite o nome da pessoa Física:");
+        f.setNome(scanner.next());
+
+        System.out.println("Digite a idade da pessoa Física:");
+        f.setIdade(scanner.nextInt());
+
+        cpFisica.cadastrarFisica(f);
+        cpFisica.listarFisicas();
+    }
+}public class Juridica extends Pessoa {
+    private int cnpj;
+
+    public int getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(int cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() + ", Idade: " + getIdade() + ", Tipo de pessoa: Jurídica, CNPJ: " + cnpj;
+    }
+}public class Pessoa {
+    private String nome;
+    private int idade;
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    @Override
+    public String toString () {
+        return "Nome: " + nome + ", idade: " + idade;
+    }
+}public class Fisica extends Pessoa {
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() + ", Idade: " + getIdade() + ", Tipo: Pessoa Física";
+    }
+}
 
 import java.util.ArrayList;
-
 public class CadastroPessoas {
     private ArrayList<Juridica> juridicas = new ArrayList<Juridica>();
 
-    public void cadastrarJuridica( p) {
-        pessoas.add(p);
-        System.out.println("Pessoa cadastrada com sucesso");
+    public void cadastrarJuridica(Juridica j) {
+        juridicas.add(j);
+        System.out.println("Pessoa Jurídica cadastrada com sucesso");
     }
 
-    public void listar() {
-        for (Pessoas p : pessoas) {
-
-            System.out.println("Nome" + p.getNome() + "idade:" +
-                    p.getIdade());
+    public void listarJuridicas() {
+        for (Juridica j : juridicas) {
+            System.out.println("Nome: " + j.getNome() + ", Idade: " + j.getIdade() + ", CNPJ: " + j.getCnpj());
         }
     }
 }
+import java.util.ArrayList;
+public class CadastroPessoas2 {
+    private ArrayList<Fisica> fisicas = new ArrayList<Fisica>();
 
-
-public class Juridica extends Pessoa {
-    private int cnpj;
-
-
-}
-
-
-public class Pessoa {
-    private String nome;
-    private int idade;
-
-    public int getIdade() {
-        return idade;
+    public void cadastrarFisica(Fisica f) {
+        fisicas.add(f);
+        System.out.println("Pessoa Física cadastrada com sucesso");
     }
 
-    public void setidade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    @Override
-    public String toString () {
-        return "Nome" + nome + " idade " + idade;
-
-    }
-}
-
-
-public class Fisica {
-    private String nome;
-    private int idade;
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setidade(int idade) {
-        this.idade = idade;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    @Override
-    public String toString () {
-        return "Nome" + nome + " idade " + idade;
-
+    public void listarFisicas() {
+        for (Fisica f : fisicas) {
+            System.out.println("Nome: " + f.getNome() + ", Idade: " + f.getIdade());
+        }
     }
 }
