@@ -1,0 +1,98 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CadastroPessoas cp = new CadastroPessoas();
+        while (true) {
+            System.out.println("Escolha uma opção:");
+            System.out.println("1. Cadastrar Pessoa Física");
+            System.out.println("2. Cadastrar Pessoa Jurídica");
+            System.out.println("3. Listar Pessoas");
+            int opcao = scanner.nextInt();
+                scanner.nextLine();
+            switch (opcao) {
+                case 1:
+                    cadastrarPessoa(cp, new Fisica(), scanner);
+                    break;
+                case 2:
+                    cadastrarPessoa(cp, new Juridica(), scanner);
+                    break;
+                case 3:
+                    cp.listar();
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
+        }
+    }
+
+    private static void cadastrarPessoa(CadastroPessoas cp, Pessoa pessoa, Scanner scanner) {
+        System.out.println("Digite o nome da pessoa:");
+        pessoa.setNome(scanner.nextLine());
+        System.out.println("Digite a idade da pessoa:");
+        pessoa.setIdade(scanner.nextInt());
+        scanner.nextLine();
+        if (pessoa instanceof Juridica) {
+            System.out.println("Digite o CNPJ:");
+            ((Juridica) pessoa).setCnpj(scanner.nextInt());
+        }
+        cp.cadastrarPessoa(pessoa);
+    }
+}import java.util.ArrayList;
+public class CadastroPessoas {
+    private ArrayList<Pessoa> pessoas = new ArrayList<>();
+
+    public void cadastrarPessoa(Pessoa pessoa) {
+        pessoas.add(pessoa);
+        System.out.println("Pessoa cadastrada com sucesso!");
+    }
+
+    public void listar() {
+        for (Pessoa p : pessoas) {
+            System.out.println(p);
+        }
+    }
+}public class Pessoa {
+    private String nome;
+    private int idade;
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    @Override
+    public String toString () {
+        return "Nome: " + nome + ", idade: " + idade;
+    }
+    }public class Juridica extends Pessoa {
+    private int cnpj;
+
+    public int getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(int cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() + ", Idade: " + getIdade() + ", Tipo de pessoa: Jurídica, CNPJ: " + cnpj;
+    }
+    }public class Fisica extends Pessoa {
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() + ", Idade: " + getIdade() + ", Tipo: Pessoa Física";
+    }
+}
